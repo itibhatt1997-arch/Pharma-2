@@ -157,11 +157,12 @@ p + p {
   display: block;
   height: 72px;
   width: auto;
+  background: #F4EFE6;
 }
 
 .logo.light img {
   height: 88px;
-  background: #fff;
+  background: #F4EFE6;
   border-radius: 10px;
   padding: 8px 12px;
 }
