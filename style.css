@@ -18,7 +18,7 @@
   --shadow: 0 12px 36px rgba(20, 18, 14, 0.08);
   --shadow-hover: 0 18px 44px rgba(20, 18, 14, 0.12);
   --radius: 20px;
-  --header: 76px;
+  --header: 92px;
   --max: 1160px;
 }
 
@@ -155,15 +155,15 @@ p + p {
 
 .logo img {
   display: block;
-  height: 46px;
+  height: 72px;
   width: auto;
 }
 
 .logo.light img {
-  height: 56px;
+  height: 88px;
   background: #fff;
-  border-radius: 8px;
-  padding: 6px 10px;
+  border-radius: 10px;
+  padding: 8px 12px;
 }
 
 .nav-menu {
