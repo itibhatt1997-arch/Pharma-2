@@ -67,19 +67,81 @@
   const csrRow = document.querySelector(".csr-row");
   const csrCards = document.querySelectorAll(".csr-card");
   const showCsr = () => csrCards.forEach((card) => card.classList.add("is-in"));
+  const hideCsr = () => {
+    csrCards.forEach((card) => {
+      card.classList.add("is-resetting");
+      card.classList.remove("is-in");
+    });
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        csrCards.forEach((card) => card.classList.remove("is-resetting"));
+      });
+    });
+  };
   if (csrRow && csrCards.length) {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       showCsr();
     } else {
       const csrSpy = new IntersectionObserver(
-        (entries, observer) => {
-          if (!entries.some((entry) => entry.isIntersecting)) return;
-          showCsr();
-          observer.disconnect();
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) showCsr();
+            else hideCsr();
+          });
         },
-        { threshold: 0.25, rootMargin: "0px 0px -40px 0px" }
+        { threshold: 0 }
       );
       csrSpy.observe(csrRow);
     }
+  }
+
+  const typeHeads = [...document.querySelectorAll(".typewriter")];
+  if (typeHeads.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    typeHeads.forEach((el) => {
+      const text = el.textContent.trim();
+      el.textContent = "";
+      const ghost = document.createElement("span");
+      ghost.className = "tw-ghost";
+      ghost.setAttribute("aria-hidden", "true");
+      ghost.textContent = text;
+      const live = document.createElement("span");
+      live.className = "tw-live";
+      const typed = document.createElement("span");
+      typed.className = "tw-text";
+      const cursor = document.createElement("span");
+      cursor.className = "tw-cursor";
+      cursor.setAttribute("aria-hidden", "true");
+      live.append(typed, cursor);
+      el.append(ghost, live);
+
+      const typeIn = () => {
+        if (el.classList.contains("is-typing") || el.classList.contains("is-done")) return;
+        el.classList.add("is-typing");
+        let i = 0;
+        const tick = () => {
+          i += 1;
+          typed.textContent = text.slice(0, i);
+          if (i < text.length) {
+            setTimeout(tick, 42);
+          } else {
+            el.classList.remove("is-typing");
+            el.classList.add("is-done");
+          }
+        };
+        tick();
+      };
+
+      const io = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            typeIn();
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.4, rootMargin: "0px 0px -8% 0px" }
+      );
+      io.observe(el);
+    });
   }
 })();
