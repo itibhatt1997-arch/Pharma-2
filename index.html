@@ -135,9 +135,9 @@
           </p>
         </div>
 
-        <ul class="about-stats reveal">
+        <ul class="about-stats">
           <li>
-            <strong>100%</strong>
+            <strong data-count="100" data-suffix="%">100%</strong>
             <span>Quality Assured</span>
           </li>
           <li class="accent">
@@ -145,7 +145,7 @@
             <span>9001:2015 Certified</span>
           </li>
           <li>
-            <strong>5+</strong>
+            <strong data-count="5" data-suffix="+">5+</strong>
             <span>Therapy Areas</span>
           </li>
         </ul>
@@ -201,29 +201,38 @@
           <h2>Mission &amp; Vision</h2>
         </header>
         <div class="mv-grid">
-          <article class="mv-card mission reveal">
+          <article class="mv-card mission">
+            <svg class="mv-mark" viewBox="0 0 120 120" aria-hidden="true">
+              <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width="3"/>
+              <circle cx="60" cy="60" r="16" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M60 8v16M60 96v16M8 60h16M96 60h16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <path d="M60 22l12 38-12 38-12-38z" fill="currentColor"/>
+            </svg>
             <p class="mv-label">Our Mission</p>
             <h3 class="typewriter">Inspire hope and contribute to health and well-being</h3>
             <p>We provide quality healthcare solutions that make a meaningful difference to patients and communities.</p>
             <p class="mv-sub">We aim to:</p>
             <ul class="check-list">
-              <li>Be recognized as a reliable provider of healthcare products and services.</li>
-              <li>Deliver superior value to patients, customers and stakeholders through innovation and specialization.</li>
-              <li>Continuously improve our products, processes and services.</li>
-              <li>Build a workplace that values people, promotes learning and nurtures innovation.</li>
-              <li>Foster a culture of collaboration, integrity and collective excellence.</li>
+              <li style="--i:0">Be recognized as a reliable provider of healthcare products and services.</li>
+              <li style="--i:1">Deliver superior value to patients, customers and stakeholders through innovation and specialization.</li>
+              <li style="--i:2">Continuously improve our products, processes and services.</li>
+              <li style="--i:3">Build a workplace that values people, promotes learning and nurtures innovation.</li>
+              <li style="--i:4">Foster a culture of collaboration, integrity and collective excellence.</li>
             </ul>
           </article>
-          <article class="mv-card vision reveal" style="--d:.12s">
+          <article class="mv-card vision">
+            <svg class="mv-mark" viewBox="0 0 120 120" aria-hidden="true">
+              <path d="M60 10l13 32h34L81 62l13 32-34-20-34 20 13-32-26-20h34z" fill="currentColor"/>
+            </svg>
             <p class="mv-label">Our Vision</p>
             <h3 class="typewriter">Set new benchmarks in healthcare</h3>
             <p>Through human expertise, innovative molecules and advanced technology.</p>
             <p class="mv-sub">Our vision is to:</p>
             <ul class="check-list">
-              <li>Build leadership across our chosen therapeutic and business segments.</li>
-              <li>Earn the trust and respect of patients, physicians, customers and business partners.</li>
-              <li>Pursue sustainable growth while creating long-term stakeholder value.</li>
-              <li>Continuously expand our capabilities through innovation, technology and scientific knowledge.</li>
+              <li style="--i:0">Build leadership across our chosen therapeutic and business segments.</li>
+              <li style="--i:1">Earn the trust and respect of patients, physicians, customers and business partners.</li>
+              <li style="--i:2">Pursue sustainable growth while creating long-term stakeholder value.</li>
+              <li style="--i:3">Continuously expand our capabilities through innovation, technology and scientific knowledge.</li>
             </ul>
           </article>
         </div>
